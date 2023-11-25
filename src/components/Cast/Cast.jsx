@@ -6,6 +6,8 @@ import { CastList } from './Cast.styled';
 // зображення користувача за замовчуванням
 import defaultPicture from './avatar-picture.png';
 
+
+
 const Cast = () => {
   const { id } = useParams();
   const [casts, setCasts] = useState([]);
