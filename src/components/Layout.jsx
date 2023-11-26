@@ -7,6 +7,7 @@ const Container = styled.div`
   background-color: #fff;
 `;
 
+
 const Layout = () => {
   return (
     <Container>
