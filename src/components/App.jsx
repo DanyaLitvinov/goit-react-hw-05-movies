@@ -11,19 +11,23 @@ const Home = lazy(() => import('../pages/home'));
 const Movies = lazy(() => import('../pages/movies'));
 const FilmDetails = lazy(() => import('../pages/FilmDetails/FilmDetails'));
 const Cast = lazy(() => import('../components/Cast/Cast'));
-const Reviews = lazy(() => import('..//components/Reviews/reviews'));
+const Reviews = lazy(() => import('../components/Reviews/reviews'));
+const NotFound = lazy(() => import(`../components/NotFound`));
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:id" element={<FilmDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
+          
         </Route>
       </Route>
+      
     </Routes>
   );
 };

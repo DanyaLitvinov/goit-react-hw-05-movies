@@ -16,6 +16,7 @@ import {
 
 // зображення користувача за замовчуванням
 import defaultPicture from '../../components/Cast/avatar-picture.png';
+import { NotFound } from 'components/NotFound';
 
 const FilmDetails = () => {
   const { id } = useParams();
@@ -59,7 +60,7 @@ const FilmDetails = () => {
     <Container>
       <NavLink to={backLinkRef.current}>Back</NavLink>
 
-      {status === 'rejected' && <p>{error}</p>}
+      {status === 'rejected' && <NotFound error={error}/>}
 
       {status === 'resolved' && (
         <WrapperMain>
