@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Title, Container, ListOfFilm } from './FilmList.stylaed';
+import { Container, ListOfFilm } from './FilmList.stylaed';
 
 const FilmList = ({films, error, location}) => {
   return (

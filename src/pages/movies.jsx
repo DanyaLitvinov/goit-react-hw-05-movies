@@ -2,19 +2,8 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getFilm } from 'api/fetchFilm';
-import { Link } from 'react-router-dom';
 import FilmList from 'components/FilmList/FilmList';
 
-const ListOfFilm = styled.ul`
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  li {
-    font-size: 18px;
-    font-weight: 600;
-  }
-`;
 
 const InputWrapper = styled.form`
   box-shadow: 0px 10px 10px rgba(46, 47, 66, 0.08),
