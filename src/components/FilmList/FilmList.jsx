@@ -1,30 +1,10 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getMovies } from 'api/fetchFilm';
+import { Link } from 'react-router-dom';
 import { Title, Container, ListOfFilm } from './FilmList.stylaed';
 
-const FilmList = () => {
-  const [films, setFilms] = useState([]);
-  const [error, setError] = useState(null);
-  const location = useLocation(); //для отримання шляху з якого переходимо для передачи через props
-
-  useEffect(() => {
-    const fetchFilms = async () => {
-      try {
-        const data = await getMovies();
-        const films = data.results;
-        setFilms(films);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-
-    fetchFilms();
-  }, []);
-
+const FilmList = ({films, error, location}) => {
   return (
     <Container>
-      <Title>Trending today</Title>
+     
 
       {error && <p>Вибачте, але щось пішло не так :(</p>}
 

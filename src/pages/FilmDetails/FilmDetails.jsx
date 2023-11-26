@@ -15,16 +15,13 @@ import {
 } from './FilmDetails.styled';
 
 // зображення користувача за замовчуванням
-import defaultPicture from '../Cast/avatar-picture.png';
+import defaultPicture from '../../components/Cast/avatar-picture.png';
 
 const FilmDetails = () => {
   const { id } = useParams();
   const location = useLocation(); //для отримання шляху з якого прийшли
   const backLinkRef = useRef(location.state?.from ?? '/'); //для зберігання шляху з якого прийшли
-  const [film, setFilms] = useState([]);
-  const [genres, setGenres] = useState([]);
-  const [date, setDate] = useState('');
-  const [urlImg, setUrlImg] = useState('');
+  const [info, setInfo] = useState({})
   const [error, setError] = useState(null);
   const [status, setStatus] = useState('idle');
 
@@ -32,20 +29,12 @@ const FilmDetails = () => {
     const fetchFilms = async () => {
       try {
         const film = await getDetailMovie(id);
-        const genres = film.genres; // отримання жанру
-        const date = film.release_date.split('-')[0]; // отримання дати виходу
-        const url = film.poster_path
-          ? `https://image.tmdb.org/t/p/w500${film.poster_path}`
-          : defaultPicture;
-
-        if (film === []) {
-          setError(`Інформація по фільму відсутня`);
+        
+        if (!film) {
+          setError('Інформація по фільму відсутня');
           setStatus('rejected');
         } else {
-          setGenres(genres);
-          setFilms(film);
-          setDate(date);
-          setUrlImg(url);
+          setInfo(film)
           setStatus('resolved');
         }
       } catch (error) {
@@ -56,8 +45,15 @@ const FilmDetails = () => {
 
     fetchFilms();
   }, [id]);
+  console.log(info)
+  const {genres, release_date, poster_path, title, overview, vote_average } = info;
 
-  const { title, overview, vote_average } = film;
+ 
+  const urlImg = poster_path
+    ? `https://image.tmdb.org/t/p/w500${poster_path}`
+    : defaultPicture;
+  
+  const date = release_date?.split('-')[0];
 
   return (
     <Container>

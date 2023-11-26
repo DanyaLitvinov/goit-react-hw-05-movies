@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getFilm } from 'api/fetchFilm';
 import { Link } from 'react-router-dom';
+import FilmList from 'components/FilmList/FilmList';
 
 const ListOfFilm = styled.ul`
   margin-top: 20px;
@@ -86,15 +87,7 @@ const Movies = () => {
 
       {status === 'rejected' && <ErrorText>{error}</ErrorText>}
 
-      <ListOfFilm>
-        {films.map(film => (
-          <li key={film.id}>
-            <Link to={`${film.id}`} state={{ from: location }}>
-              {film.title}
-            </Link>
-          </li>
-        ))}
-      </ListOfFilm>
+      <FilmList films={films} error={error} location={location}/>
     </Container>
   );
 };

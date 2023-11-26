@@ -9,7 +9,7 @@ import { lazy } from 'react';
 
 const Home = lazy(() => import('../pages/home'));
 const Movies = lazy(() => import('../pages/movies'));
-const FilmDetails = lazy(() => import('../components/FilmDetails/FilmDetails'));
+const FilmDetails = lazy(() => import('../pages/FilmDetails/FilmDetails'));
 const Cast = lazy(() => import('../components/Cast/Cast'));
 const Reviews = lazy(() => import('..//components/Reviews/reviews'));
 
