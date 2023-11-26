@@ -60,6 +60,8 @@ const FilmDetails = () => {
     <Container>
       <NavLink to={backLinkRef.current}>Back</NavLink>
 
+
+
       {status === 'rejected' && <NotFound error={error}/>}
 
       {status === 'resolved' && (
