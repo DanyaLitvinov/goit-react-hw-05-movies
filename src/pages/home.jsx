@@ -29,7 +29,7 @@ const Home = () => {
     fetchFilms();
   }, []);
 
-  return ( <div><HomeTitle>Trending today</HomeTitle><FilmList films={films} error={error} location={location}/></div>);
+  return ( <div><HomeTitle>Trending today</HomeTitle><FilmList isHomePage films={films} error={error} location={location}/></div>);
 };
 
 export default Home;

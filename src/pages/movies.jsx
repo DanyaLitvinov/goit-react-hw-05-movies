@@ -57,7 +57,7 @@ const Movies = () => {
     };
 
     fetchFilm();
-  });
+  },[searchFilm]);
 
   const updateSearch = event => {
     const filmNameValue = event.target.value;

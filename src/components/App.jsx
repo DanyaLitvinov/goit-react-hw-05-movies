@@ -19,7 +19,6 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:id" element={<FilmDetails />}>
           <Route path="cast" element={<Cast />} />
@@ -27,7 +26,7 @@ const App = () => {
           
         </Route>
       </Route>
-      
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

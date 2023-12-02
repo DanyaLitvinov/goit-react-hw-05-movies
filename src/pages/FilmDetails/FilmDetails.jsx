@@ -46,7 +46,7 @@ const FilmDetails = () => {
 
     fetchFilms();
   }, [id]);
-  console.log(info)
+
   const {genres, release_date, poster_path, title, overview, vote_average } = info;
 
  
