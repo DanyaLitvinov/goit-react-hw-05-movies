@@ -16,7 +16,7 @@ import {
 
 // зображення користувача за замовчуванням
 import defaultPicture from '../../components/Cast/avatar-picture.png';
-import { NotFound } from 'components/NotFound';
+import  NotFound  from '../../components/NotFound';
 
 const FilmDetails = () => {
   const { id } = useParams();
